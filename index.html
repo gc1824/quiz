@@ -335,6 +335,56 @@ body{background:linear-gradient(180deg,var(--bg-top) 0,var(--bg) 220px) var(--bg
 .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:60}
 .confetti span{position:absolute;top:-2.5rem;animation:fall 2.6s ease-in forwards}
 @keyframes fall{to{transform:translateY(112vh) rotate(420deg)}}
+
+/* ===== exam intro: book -> scan -> paper (5s) ===== */
+.intro{position:fixed;inset:0;z-index:80;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;color:#fff;overflow:hidden;
+  background:radial-gradient(120% 80% at 50% 0,#27529a 0,#12264a 55%,#0a1630 100%);animation:ov-in .35s both}
+.intro::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent);-webkit-mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent)}
+.intro.out{animation:ov-out .4s both}
+@keyframes ov-in{from{opacity:0}to{opacity:1}}
+@keyframes ov-out{to{opacity:0}}
+.intro .skip{position:absolute;right:max(14px,env(safe-area-inset-right,0px));top:calc(12px + env(safe-area-inset-top,0px));min-height:38px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;font-size:14px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);z-index:3}
+.intro .stage{position:relative;display:flex;flex-direction:column;align-items:center;z-index:1}
+.book{position:relative;width:256px;height:160px;display:flex;animation:bk-in .7s cubic-bezier(.2,.8,.2,1) both}
+.book::before{content:"";position:absolute;inset:-8px -8px -10px;border-radius:16px;background:linear-gradient(135deg,#34518a,#1b2f58);box-shadow:0 18px 40px rgba(0,0,0,.45);z-index:0}
+.book .pg{position:relative;z-index:1;flex:1;background:#fbf7ea;padding:16px 14px;display:flex;flex-direction:column;gap:11px}
+.book .pg.l{border-radius:8px 2px 2px 8px;background:linear-gradient(90deg,#fbf7ea 80%,#e9e1c8)}
+.book .pg.r{border-radius:2px 8px 8px 2px;background:linear-gradient(270deg,#fbf7ea 80%,#e9e1c8)}
+.book .tl{height:6px;border-radius:3px;width:var(--w);background:rgba(50,62,90,.28);animation:glow .5s ease-out forwards;animation-delay:var(--d)}
+@keyframes glow{0%{background:rgba(50,62,90,.28);transform:scaleX(1)}40%{background:#ffd447;box-shadow:0 0 10px #ffd447;transform:scaleX(1.03)}100%{background:#f2b705;box-shadow:none;transform:scaleX(1)}}
+@keyframes bk-in{from{opacity:0;transform:translateY(-14px) scale(.86) rotateX(24deg)}to{opacity:1;transform:none}}
+.beam{position:absolute;left:-14px;right:-14px;top:0;height:3px;z-index:2;background:linear-gradient(90deg,transparent,#ffe27a 20%,#fff 50%,#ffe27a 80%,transparent);box-shadow:0 0 16px 5px rgba(255,212,71,.65);opacity:0;animation:beam 2.5s linear .9s forwards}
+.beam::after{content:"";position:absolute;left:0;right:0;bottom:3px;height:46px;background:linear-gradient(to top,rgba(255,226,122,.35),transparent)}
+@keyframes beam{0%{top:4%;opacity:0}6%{opacity:1}94%{opacity:1}100%{top:96%;opacity:0}}
+.flow{position:relative;width:256px;height:84px}
+.flow i{position:absolute;left:50%;top:0;width:34px;height:10px;border-radius:5px;background:linear-gradient(90deg,#ffd447,#ff9f1c);box-shadow:0 0 10px rgba(255,212,71,.8);opacity:0;animation:fly 1.05s ease-in forwards;animation-delay:calc(1.2s + var(--i)*.27s)}
+@keyframes fly{0%{opacity:0;transform:translate(calc(-50% + var(--sx)),-6px) scale(1)}15%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),82px) scale(.45)}}
+.paper{position:relative;width:176px;height:206px;background:#fff;border-radius:10px;padding:16px 14px;display:flex;flex-direction:column;gap:9px;box-shadow:0 18px 40px rgba(0,0,0,.45);animation:bk-in .7s .15s cubic-bezier(.2,.8,.2,1) both;overflow:hidden}
+.paper::after{content:"";position:absolute;top:0;right:0;border-style:solid;border-width:0 22px 22px 0;border-color:transparent #dfe6f5 #dfe6f5 transparent;border-bottom-left-radius:6px}
+.paper .pl{height:6px;border-radius:3px;background:#c4d0ea;width:var(--w);transform-origin:left;transform:scaleX(0);animation:plin .38s ease-out forwards;animation-delay:calc(1.4s + var(--i)*.25s)}
+.paper .pl.t{height:10px;background:#1e3a5f;width:60%}
+.paper .or{display:flex;align-items:center;gap:7px}
+.paper .or b{width:9px;height:9px;border-radius:50%;border:1.5px solid #8fa3cc;flex:none;transform:scale(0);animation:plin .3s ease-out forwards;animation-delay:calc(1.4s + var(--i)*.25s)}
+.paper .or .pl{flex:1;width:auto;max-width:var(--w)}
+@keyframes plin{to{transform:scaleX(1)}}
+.paper .or b{animation-name:dot}
+@keyframes dot{to{transform:scale(1)}}
+.paper .shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,226,122,.6) 50%,transparent 65%);transform:translateX(-120%);animation:shine .9s ease-in-out 3.7s forwards}
+@keyframes shine{to{transform:translateX(120%)}}
+.paper .stamp{position:absolute;right:10px;bottom:10px;width:52px;height:52px;border-radius:50%;background:#16a34a;color:#fff;display:grid;place-items:center;font-size:28px;font-weight:800;opacity:0;transform:scale(2.2) rotate(-18deg);animation:stamp .45s cubic-bezier(.2,1.4,.4,1) 3.95s forwards;box-shadow:0 6px 16px rgba(22,163,74,.5)}
+@keyframes stamp{to{opacity:1;transform:scale(1) rotate(-8deg)}}
+.intro .st{position:relative;height:3.4rem;width:100%;margin-top:22px;text-align:center}
+.intro .st span{position:absolute;left:0;right:0;top:0;font-size:17px;font-weight:700;opacity:0}
+.intro .st small{display:block;font-size:13px;font-weight:500;opacity:.8;margin-top:2px}
+.intro .st .a{animation:stw .9s .15s both}
+.intro .st .b{animation:stw 2.9s 1s both}
+.intro .st .c{animation:stin .5s 3.9s both}
+@keyframes stw{0%{opacity:0;transform:translateY(8px)}12%,88%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-6px)}}
+@keyframes stin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.intro .bar{position:absolute;left:0;bottom:0;height:4px;width:100%;background:linear-gradient(90deg,#ffd447,#f2b705);transform-origin:left;transform:scaleX(0);animation:barfill 4.6s linear both}
+@keyframes barfill{to{transform:scaleX(1)}}
+@media (max-height:640px){.book{transform:scale(.82)}.paper{transform:scale(.85)}.flow{height:60px}}
+@media (prefers-reduced-motion:reduce){.intro{display:none}}
 </style>
 <div id="app"></div>
 <input type="file" id="gfile" hidden accept=".docx,.txt,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
@@ -547,6 +597,39 @@ function layoutBars(){
   a.style.setProperty("--navh",(t?t.offsetHeight:0)+"px");a.style.setProperty("--footh",(f?f.offsetHeight:0)+"px");
 }
 window.addEventListener("resize",layoutBars);
+
+
+/* ---------- exam intro animation (about 5s) ---------- */
+function playIntro(cb){
+  if(S.intro)return;
+  try{if(matchMedia("(prefers-reduced-motion:reduce)").matches){cb();return}}catch(e){}
+  S.intro=true;
+  let cnt=0,tot=0;for(const t of ORDER){const c=S.cfg&&S.cfg.types[t];if(c){cnt+=c.n;tot+=c.n*c.score}}
+  const dur=(S.cfg&&S.cfg.dur)||60;
+  const ws=[88,64,76,52,82,58,70];
+  const tl=(page,i)=>`<i class="tl" style="--w:${ws[(i+page*3)%ws.length]}%;--d:${(0.95+(i/6)*2.35+page*0.06).toFixed(2)}s"></i>`;
+  const lines=[0,1,2,3,4,5,6];
+  const chips=[...Array(10)].map((_,i)=>`<i style="--i:${i};--sx:${(i%5-2)*26}px;--dx:${((i*37)%100-50)*0.9}px"></i>`).join("");
+  const orow=(i,w)=>`<div class="or"><b style="--i:${i}"></b><i class="pl" style="--i:${i};--w:${w}%"></i></div>`;
+  const el=document.createElement("div");
+  el.className="intro";el.setAttribute("role","status");el.setAttribute("aria-label","正在生成试卷");
+  el.innerHTML=`<button class="skip" type="button">跳过 ›</button>
+    <div class="stage">
+      <div class="book" aria-hidden="true"><div class="pg l">${lines.map(i=>tl(0,i)).join("")}</div><div class="pg r">${lines.map(i=>tl(1,i)).join("")}</div><div class="beam"></div></div>
+      <div class="flow" aria-hidden="true">${chips}</div>
+      <div class="paper" aria-hidden="true">
+        <i class="pl t" style="--i:0"></i><i class="pl" style="--i:1;--w:92%"></i><i class="pl" style="--i:2;--w:68%"></i>
+        ${orow(3,60)}${orow(4,74)}${orow(5,48)}${orow(6,66)}
+        <i class="pl" style="--i:7;--w:84%"></i><i class="pl" style="--i:8;--w:56%"></i>
+        <div class="shine"></div><div class="stamp">✓</div></div>
+      <div class="st"><span class="a">📖 打开题库…</span><span class="b">🔍 正在扫描题目，抽取试题…</span><span class="c">✅ 试卷已就绪<small>共 ${cnt} 题 · 满分 ${tot} 分 · 限时 ${dur} 分钟</small></span></div>
+    </div><div class="bar"></div>`;
+  document.body.appendChild(el);
+  let done=false;
+  const fin=()=>{if(done)return;done=true;clearTimeout(t1);cb();el.classList.add("out");setTimeout(()=>{el.remove();S.intro=false},420)};
+  const t1=setTimeout(fin,4700);
+  el.querySelector(".skip").addEventListener("click",fin);
+}
 
 /* ---------- docx reading (zip + deflate, no libraries) ---------- */
 async function readDocxText(buf){
@@ -1183,8 +1266,8 @@ function bind(){
   on("#pcancel",()=>{S.pending=null;render()});
   on("#psave",()=>{savePending();render()});
   on("#toHome",()=>{S.view="home";S.resetScroll=true;render()});
-  on("#start",()=>buildExam());
-  on("#again",()=>buildExam());
+  on("#start",()=>playIntro(buildExam));
+  on("#again",()=>playIntro(buildExam));
   document.querySelectorAll("[data-n]").forEach(i=>i.addEventListener("change",()=>{
     const t=i.dataset.n,max=counts()[t];S.cfg.types[t].n=Math.max(0,Math.min(max,Math.floor(+i.value||0)));render()}));
   document.querySelectorAll("[data-s]").forEach(i=>i.addEventListener("change",()=>{
