@@ -457,6 +457,64 @@ body{background:linear-gradient(180deg,var(--bg-top) 0,var(--bg) 220px) var(--bg
 .sp .pen::after{content:"";position:absolute;left:0;bottom:-8px;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-top:8px solid #111827}
 @keyframes penw{0%{opacity:1;left:12px;top:30px}23%{left:82px;top:30px}25%{left:12px;top:54px}48%{left:72px;top:54px}50%{left:12px;top:78px}73%{left:88px;top:78px}75%{left:12px;top:102px}98%{opacity:1;left:62px;top:102px}100%{opacity:1;left:62px;top:102px}}
 .sp .tt{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-size:22px;font-weight:800;letter-spacing:.06em;opacity:0;animation:stin .45s 2.25s both}
+
+.flag{width:1.6rem;height:1.08rem;border-radius:3px;display:inline-block;flex:none;vertical-align:-2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.flag.big{width:3.2rem;height:2.15rem;border-radius:6px}
+.flagbtn{padding:0 8px;gap:5px}
+.flagbtn .caret{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:.6}
+.fmask{position:fixed;inset:0;z-index:70}
+.fmenu{position:fixed;right:10px;top:calc(var(--navh,56px) + 4px);z-index:71;background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 40px rgba(10,25,60,.28);padding:6px;min-width:210px;animation:enter .2s both}
+.fopt{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:none;border-radius:12px;padding:10px 12px;font-size:15px;font-weight:600;min-height:46px}
+.fopt.on{background:var(--sel-bg)}
+.fopt .ft{flex:1}.fopt .ic{width:1.1rem;height:1.1rem;color:var(--ok);stroke-width:3}
+.lgh{display:flex;align-items:center;gap:8px;margin:12px 0 6px;font-size:.88rem;font-weight:800}
+.lgh .n{margin-left:auto;font-size:.72rem;background:var(--bg);border-radius:999px;padding:1px 9px;color:var(--muted)}
+.lgh em{font-style:normal;font-size:.66rem;font-weight:700;background:var(--accent);color:var(--accent-fg);border-radius:6px;padding:1px 6px}
+.emp2{font-size:.8rem;color:var(--muted);padding:6px 4px 10px}
+.nob{align-items:center;text-align:center;gap:10px}
+
+.intro.fl .scene{position:relative;width:300px;height:330px;z-index:1}
+.fl .fbk{position:absolute;left:90px;top:40px;width:120px;height:170px;perspective:700px;filter:drop-shadow(0 16px 22px rgba(0,0,0,.45))}
+.fl .fpg{position:absolute;inset:0;background:#fffdf5;border-radius:3px 8px 8px 3px;padding:34px 14px;display:flex;flex-direction:column;gap:12px;box-shadow:inset 0 0 0 1px #e6dcc0,4px 4px 0 -1px #f3ead2}
+.fl .fpg i{display:block;height:5px;border-radius:3px;background:#c4cde4;width:80%}
+.fl .fcv{position:absolute;inset:0;border-radius:3px 8px 8px 3px;transform-origin:left center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#fff;text-align:center;padding:0 8px 0 14px;font-size:13px;line-height:1.3}
+.fl .fcv.id{background:linear-gradient(135deg,#df3333,#8f1414);box-shadow:inset 7px 0 0 rgba(0,0,0,.22),inset 0 0 0 3px rgba(255,255,255,.8)}
+.fl .fcv.zh{background:linear-gradient(135deg,#d62828,#8c1111);box-shadow:inset 7px 0 0 rgba(0,0,0,.22),inset 0 0 0 3px rgba(242,183,5,.9)}
+.fl .cvf{width:64px;height:43px;border-radius:5px;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.fl .fbk.o{animation:fbOut .75s .95s cubic-bezier(.5,0,.8,.5) forwards}
+.fl .fbk.o .fcv{transform:rotateY(-42deg);animation:fcClose .55s .2s ease-in-out forwards}
+.fl .fbk.n{opacity:0;transform:translateX(190px) rotate(10deg) scale(.7);animation:fbIn .75s 1.35s cubic-bezier(.2,.8,.2,1) forwards}
+.fl .fbk.n .fcv{animation:fcOpen .6s 2.1s ease-in-out forwards}
+@keyframes fcClose{to{transform:rotateY(0)}}
+@keyframes fcOpen{to{transform:rotateY(-42deg)}}
+@keyframes fbOut{to{opacity:0;transform:translateX(-190px) rotate(-10deg) scale(.7)}}
+@keyframes fbIn{to{opacity:1;transform:none}}
+.intro.fl .st{position:absolute;left:0;right:0;top:238px;margin:0;height:5rem}
+.intro.fl .st .a{animation:stw 1.1s .1s both}
+.intro.fl .st .b{animation:stw 1.2s 1.3s both}
+.intro.fl .st .c{animation:stin .5s 2.45s both}
+
+.bi{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:inherit;line-height:1.22;max-width:100%}
+.bi>.id{display:block}
+.bi>.zh{display:block;font-size:.8em;opacity:.78;font-weight:500}
+
+.flagbtn .caret{display:none}
+.nav .ibtn{padding:0 7px}
+.nav .t{font-size:.92rem;min-width:0}
+.hstats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hstats span{white-space:normal}
+.hstats>div{min-width:0}
+.hstats>div span{overflow-wrap:anywhere}
+
+.nav{grid-template-columns:auto minmax(0,1fr) auto}
+.nav .t{overflow:hidden;text-overflow:ellipsis}
+.foot .btn{padding-inline:6px;gap:4px;font-size:14.5px;min-width:0}
+.foot .btn .ic{width:1rem;height:1rem}
+
+.bi{min-width:0}
+.bi>.id{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bi.lg2>.id{white-space:normal;overflow:visible}
+.bi>.zh{white-space:normal}
 @media (prefers-reduced-motion:reduce){.intro{display:none}}
 </style>
 <div id="app"></div>
@@ -544,7 +602,7 @@ function countUp(el){
 
 
 /* ---------- short answer comparison ---------- */
-const normC=t=>String(t).replace(/^[（(]?[0-9一二三四五六七八九十]+[）).、．]\s*/,"").replace(/[^一-龥A-Za-z0-9]/g,"");
+const normC=t=>String(t).replace(/^[（(]?[0-9一二三四五六七八九十]+[）).、．]\s*/,"").replace(/[^一-龥A-Za-z0-9]/g,"").toLowerCase();
 function bigrams(t){const m=new Map();for(let i=0;i<t.length-1;i++){const g=t.slice(i,i+2);m.set(g,(m.get(g)||0)+1)}return m}
 function dice(a,b){
   if(a.length<2||b.length<2)return a===b?1:0;
@@ -594,10 +652,10 @@ function catLabel(b){
   return `安全考试${+y!==cy?y+"年":""}${+m}月`;
 }
 const catEmoji=b=>CATEMO[b.cat]||"📚";
-const LSL="anquiz.lib.v1",LSA="anquiz.active.v1",LSD="anquiz.daily.v1";
+const LSG="anquiz.lang.v1",LSB="anquiz.act2.v1",LSL="anquiz.lib.v1",LSA="anquiz.active.v1",LSD="anquiz.daily.v1";
 const CATS=["安全考试","其他"],CATEMO={"安全考试":"🦺","其他":"📚"};
 const EMO={single:"🎯",multi:"🧩",tf:"✅",short:"✍️"};
-const lib=()=>BUILTINS.map(b=>({...b,user:false})).concat(jget(LSL,[]).map(x=>({...x,user:true})));
+const lib=()=>BUILTINS.map(b=>({...b,user:false,lang:b.lang||"zh"})).concat(jget(LSL,[]).map(x=>({...x,user:true,lang:x.lang||"zh"})));
 function bcounts(bank){const c={};for(const q of bank)c[q.type]=(c[q.type]||0)+1;return c}
 function bsum(bank){const c=bcounts(bank);return ORDER.filter(t=>c[t]).map(t=>`${TYPE[t].replace("题","")}${c[t]}`).join(" · ")}
 function mergeBanks(list){
@@ -605,13 +663,19 @@ function mergeBanks(list){
   for(const b of list)for(const q of b.bank){const k=qkey(q);if(seen.has(k))continue;seen.add(k);out.push({...q})}
   out.forEach((q,i)=>q.id=i);return out;
 }
+function actMap(){const m=jget(LSB,null);return m&&typeof m==="object"?m:{zh:jget(LSA,[]),id:[]}}
 function applyActive(ids){
-  const L=lib();let sel=(ids||[]).map(id=>L.find(b=>b.id===id)).filter(Boolean);
-  if(!sel.length)sel=[BUILTINS[BUILTINS.length-1]];
-  S.active=sel.map(b=>b.id);S.bank=mergeBanks(sel);
-  S.name=sel.length>1?`${sel[0].name} 等 ${sel.length} 套`:sel[0].name;
-  S.bankCat=sel.length>1?"":catEmoji(sel[0])+" "+catLabel(sel[0]);S.cfg=null;S.warn=[];
-  jset(LSA,S.active);
+  const L=lib().filter(b=>b.lang===S.lang);
+  let sel=(ids||[]).map(id=>L.find(b=>b.id===id)).filter(Boolean);
+  if(!sel.length&&L.length)sel=[L.filter(b=>!b.user).pop()||L[L.length-1]];
+  S.cfg=null;S.warn=[];
+  if(!sel.length){S.active=[];S.bank=null;S.name="";S.bankCat=""}
+  else{
+    S.active=sel.map(b=>b.id);S.bank=mergeBanks(sel);
+    S.name=sel.length>1?`${sel[0].name} 等 ${sel.length} 套`:sel[0].name;
+    S.bankCat=sel.length>1?"":catEmoji(sel[0])+" "+catLabel(sel[0]);
+  }
+  const m=actMap();m[S.lang]=S.active;jset(LSB,m);
 }
 function migrateLegacy(){
   const old=store.get();
@@ -626,9 +690,10 @@ function saveUserLib(L){try{localStorage.setItem(LSL,JSON.stringify(L));return t
 function savePending(){
   const p=S.pending,L=jget(LSL,[]);
   const id="u"+Date.now().toString(36);
-  L.push({id,ym:p.ym,name:(p.name||"未命名题库").trim()||"未命名题库",cat:p.cat,t:Date.now(),bank:p.bank});
+  const lg=p.lang==="id"?"id":"zh";const bk=p.bank.map(q=>q.type==="tf"?{...q,opts:[{k:"T",t:lg==="id"?"Benar":"正确"},{k:"F",t:lg==="id"?"Salah":"错误"}]}:q);
+  L.push({id,ym:p.ym,name:(p.name||"未命名题库").trim()||"未命名题库",cat:p.cat,lang:lg,t:Date.now(),bank:bk});
   if(!saveUserLib(L)){S.err="存档失败：浏览器存储空间不足，请先删除不用的题库。";S.pending=null;return}
-  applyActive([id]);S.warn=p.warn||[];S.pending=null;S.err="";
+  S.lang=lg;jset(LSG,lg);applyActive([id]);S.warn=p.warn||[];S.pending=null;S.err="";
 }
 /* ---------- fun stats ---------- */
 const dkey=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
@@ -649,6 +714,30 @@ function confetti(){
   for(let i=0;i<26;i++){const sp=document.createElement("span");sp.textContent=E[i%E.length];sp.style.left=(Math.random()*100)+"%";sp.style.animationDelay=(Math.random()*.9)+"s";sp.style.fontSize=(16+Math.random()*16)+"px";c.appendChild(sp)}
   document.body.appendChild(c);setTimeout(()=>c.remove(),3600);
 }
+
+/* ---------- language / flags ---------- */
+const starPts=(cx,cy,R,rot)=>{const p=[];for(let i=0;i<10;i++){const r=i%2?R*.4:R,a=(rot+i*36)*Math.PI/180;p.push((cx+r*Math.cos(a)).toFixed(2)+","+(cy+r*Math.sin(a)).toFixed(2))}return p.join(" ")};
+function flag(l,cls){
+  const body=l==="id"?`<rect width="30" height="10" fill="#e70011"/><rect y="10" width="30" height="10" fill="#fff"/>`
+   :`<rect width="30" height="20" fill="#de2910"/><polygon points="${starPts(6,6,3.8,-90)}" fill="#ffde00"/>`+[[12,2.6],[14.4,5],[14.4,8.2],[12,10.6]].map(([x,y])=>`<polygon points="${starPts(x,y,1.1,-90)}" fill="#ffde00"/>`).join("");
+  return `<svg class="flag ${cls||""}" viewBox="0 0 30 20" aria-hidden="true">${body}<rect x=".5" y=".5" width="29" height="19" rx="2" fill="none" stroke="rgba(0,0,0,.2)"/></svg>`;
+}
+function flagBtn(){return `<button class="ibtn flagbtn" id="flagbtn" aria-label="语言 / Bahasa" aria-expanded="${!!S.flagMenu}">${flag(S.lang)}<i class="caret"></i></button>`}
+function vFlagMenu(){
+  if(!S.flagMenu)return "";
+  const o=(l,t)=>`<button class="fopt ${S.lang===l?"on":""}" data-lang="${l}">${flag(l)}<span class="ft">${t}</span>${S.lang===l?ic("check"):""}</button>`;
+  return `<div class="fmask" id="fmask"></div><div class="fmenu" role="menu">${o("id","印尼语")}${o("zh","中文")}</div>`;
+}
+function setLang(l,ids){
+  if(l===S.lang){S.flagMenu=false;render();return}
+  const old=S.lang;S.lang=l;jset(LSG,l);
+  applyActive(ids||actMap()[l]);
+  S.flagMenu=false;S.drawer=false;clearTimeout(S.dt);
+  if(S.view==="setup")S.view="home";
+  S.resetScroll=true;render();playFlag(old,l);
+}
+function detectLang(t){const x=String(t).slice(0,8000);const cjk=(x.match(/[一-鿿]/g)||[]).length,lat=(x.match(/[A-Za-z]{3,}/g)||[]).length;return cjk>lat*.5?"zh":"id"}
+
 /* ---------- drawer ---------- */
 function resetDT(){clearTimeout(S.dt);if(S.drawer)S.dt=setTimeout(closeDrawer,6000)}
 function openDrawer(){S.drawer=true;S.dfresh=true;S.dcat="all";render()}
@@ -749,6 +838,360 @@ function playSwitch(oldName,newName){
   timers.push(setTimeout(fin,3200));
   el.addEventListener("click",fin);
 }
+
+/* ---------- language switch animation (flag books, 3s) ---------- */
+function playFlag(from,to){
+  try{if(matchMedia("(prefers-reduced-motion:reduce)").matches)return}catch(e){}
+  if(S.fl)return;S.fl=true;
+  const nm=l=>l==="id"?"印尼语题库":"中文题库";
+  const book=(l,c)=>`<div class="fbk ${c}"><div class="fpg"><i></i><i></i><i></i><i></i></div><div class="fcv ${l}">${flag(l,"cvf")}<b>${nm(l)}</b></div></div>`;
+  const el=document.createElement("div");el.className="intro fl";el.setAttribute("role","status");el.setAttribute("aria-label","正在切换语言");
+  el.innerHTML=`<div class="scene">${book(from,"o")}${book(to,"n")}<div class="st"><span class="a">📕 收起当前题库…</span><span class="b">📗 换上${nm(to)}…</span><span class="c">✅ 已切换到：${nm(to)}</span></div></div><div class="bar" style="animation-duration:3s"></div>`;
+  document.body.appendChild(el);
+  let done=false;const fin=()=>{if(done)return;done=true;clearTimeout(t1);el.classList.add("out");setTimeout(()=>{el.remove();S.fl=false},380)};
+  const t1=setTimeout(fin,3000);
+  el.addEventListener("click",fin);
+}
+
+/* ---------- bilingual UI: Indonesian on top, Chinese below ---------- */
+const I18N=[
+  ["安全考试刷题宝","Latihan Ujian Keselamatan"],
+  ["刷题宝","Latihan Soal"],
+  ["题库","Bank Soal"],
+  ["标准","Standar"],
+  ["大","Besar"],
+  ["特大","Ekstra besar"],
+  ["夜深了","Selamat malam"],
+  ["早上好","Selamat pagi"],
+  ["中午好","Selamat siang"],
+  ["下午好","Selamat sore"],
+  ["晚上好","Selamat malam"],
+  ["今天也来刷几道题吧","Yuk, latihan beberapa soal hari ini"],
+  ["连续天数","Hari beruntun"],
+  ["今日已刷","Soal hari ini"],
+  ["模考次数","Ujian"],
+  ["按题型练习","Latihan per jenis soal"],
+  ["单选题","Pilihan ganda"],
+  ["多选题","Pilihan jamak"],
+  ["判断题","Benar/Salah"],
+  ["简答题","Jawaban singkat"],
+  ["选择题","Pilihan ganda"],
+  ["错题本","Buku Soal Salah"],
+  ["模考后自动生成","Dibuat otomatis setelah ujian"],
+  ["成绩记录","Riwayat Nilai"],
+  ["完成模考后显示","Tampil setelah ujian simulasi"],
+  ["安全考试#月","Ujian Keselamatan bulan #"],
+  ["安全考试#年#月","Ujian Keselamatan $2/$1"],
+  ["其他","Lainnya"],
+  ["全部","Semua"],
+  ["切换题库","Ganti bank soal"],
+  ["多套合并","Beberapa bank digabung"],
+  ["#年#月题库","Bank soal $2/$1"],
+  ["{} 等 # 套","$1 dan lainnya (# bank)"],
+  ["共 # 题","Total # soal"],
+  ["单选#","PG #"],
+  ["多选#","Jamak #"],
+  ["判断#","B/S #"],
+  ["简答#","Singkat #"],
+  ["另有 # 条提示","Ada # catatan lagi"],
+  ["要上传新题库，请点左上角「题库」。成绩记录、错题本和上传的题库都保存在这台设备的浏览器里，换手机或清除浏览器数据后会消失","Untuk mengunggah bank soal baru, ketuk \"Bank Soal\" di kiri atas. Riwayat nilai, buku soal salah, dan bank soal yang diunggah tersimpan di browser perangkat ini dan akan hilang jika ganti ponsel atau data browser dihapus."],
+  ["开始组卷","Mulai susun ujian"],
+  ["有一场考试还没做完","Ada ujian yang belum selesai"],
+  ["已完成 # / # 题，剩余 #:#","Selesai # / # soal, sisa $3:$4"],
+  ["继续考试","Lanjutkan ujian"],
+  ["放弃","Batalkan"],
+  ["待巩固 #","Perlu diperkuat #"],
+  ["已掌握 #","Sudah dikuasai #"],
+  ["待巩固 # 题","Perlu diperkuat # soal"],
+  ["最近一次 # 分","Terakhir # poin"],
+  ["最近一次","Terakhir"],
+  ["还没有印尼语题库","Belum ada bank soal bahasa Indonesia"],
+  ["还没有中文题库","Belum ada bank soal bahasa Mandarin"],
+  ["点下面的按钮打开题库，上传 Word（.docx）题库后即可开始练习","Ketuk tombol di bawah untuk membuka daftar bank soal. Unggah bank soal Word (.docx) lalu mulai berlatih."],
+  ["打开题库列表","Buka daftar bank soal"],
+  ["印尼语","Bahasa Indonesia"],
+  ["中文","Bahasa Mandarin"],
+  ["印尼语题库","Bank soal bahasa Indonesia"],
+  ["中文题库","Bank soal bahasa Mandarin"],
+  ["暂无题库","Belum ada bank soal"],
+  ["当前","Aktif"],
+  ["关闭","Tutup"],
+  ["内置","Bawaan"],
+  ["上传新题库","Unggah bank soal baru"],
+  ["改为安全考试","Ubah ke Ujian Keselamatan"],
+  ["改为其他","Ubah ke Lainnya"],
+  ["点题库名切换题库；点左侧方框可勾选多套合并组卷。# 秒不操作自动收起","Ketuk nama untuk berganti bank soal; ketuk kotak di kiri untuk menggabungkan beberapa bank. Menutup otomatis setelah # detik tanpa aktivitas."],
+  ["识别到 # 道题","Terdeteksi # soal"],
+  ["题库名称","Nama bank soal"],
+  ["题库月份（已按文件名自动识别，可修改）","Bulan bank soal (terdeteksi dari nama file, dapat diubah)"],
+  ["题库语言","Bahasa bank soal"],
+  ["题库类别","Kategori bank soal"],
+  ["取消","Batal"],
+  ["保存并使用","Simpan & gunakan"],
+  ["返回","Kembali"],
+  ["组卷设置","Pengaturan ujian"],
+  ["题型","Jenis soal"],
+  ["题数","Jumlah"],
+  ["每题分","Skor/soal"],
+  ["题库共 # 道","Bank soal: # soal"],
+  ["题库共 # 道，按答到的条数给分","Bank soal: # soal, nilai sesuai jumlah poin yang dijawab"],
+  ["出题方式","Cara menyusun soal"],
+  ["随机抽题","Acak"],
+  ["按题库顺序","Urut sesuai bank soal"],
+  ["考试时长","Durasi ujian"],
+  ["剩余 # 分钟时提醒","Pengingat saat tersisa # menit"],
+  ["分钟","menit"],
+  ["共","Total"],
+  ["题","soal"],
+  ["满分","Skor penuh"],
+  ["分","poin"],
+  ["#分","# poin"],
+  ["开始考试","Mulai ujian"],
+  ["跳过","Lewati"],
+  ["拉开题库抽屉","Membuka laci bank soal"],
+  ["按顺序取出试题","Mengambil soal sesuai urutan"],
+  ["试卷已就绪","Lembar ujian siap"],
+  ["共 # 题 · 满分 # 分 · 限时 # 分钟","# soal · skor penuh # · batas # menit"],
+  ["打开题库","Membuka bank soal"],
+  ["正在扫描题目，抽取试题","Memindai soal dan memilih pertanyaan"],
+  ["放回原来的题库","Mengembalikan bank soal lama"],
+  ["原题库","Bank soal lama"],
+  ["从书架上抽出新题库","Mengambil bank soal baru dari rak"],
+  ["已抽出","Terpilih"],
+  ["已切换到：{}","Beralih ke: $1"],
+  ["已切换到","Beralih ke"],
+  ["收起当前题库","Menyimpan bank soal saat ini"],
+  ["换上{}","Mengganti ke $1"],
+  ["退出","Keluar"],
+  ["答题卡","Kartu jawaban"],
+  ["上一题","Sebelumnya"],
+  ["下一题","Berikutnya"],
+  ["交卷","Kumpulkan"],
+  ["可多选","Pilih lebih dari satu"],
+  ["确认答案","Konfirmasi jawaban"],
+  ["回答正确","Jawaban benar"],
+  ["答对了，漂亮","Benar, bagus!"],
+  ["太棒了","Hebat!"],
+  ["完全正确","Tepat sekali"],
+  ["稳稳拿下","Mantap!"],
+  ["回答错误","Jawaban salah"],
+  ["连对 # 题","# benar beruntun"],
+  ["你选的是 {}，正确答案：{}","Pilihan Anda: $1, jawaban benar: $2"],
+  ["题库未提供这道题的答案，本题不计分","Bank soal tidak menyediakan jawaban untuk soal ini; tidak dinilai"],
+  ["查看答案","Lihat jawaban"],
+  ["参考答案","Jawaban referensi"],
+  ["参考答案（简答题不评分）","Jawaban referensi (soal singkat tidak dinilai)"],
+  ["（不评分）","(tidak dinilai)"],
+  ["题库中没有提供这道题的答案","Bank soal tidak menyediakan jawaban untuk soal ini"],
+  ["你答到了 # / # 条，本题得 # / # 分","Anda memenuhi # dari # butir, nilai soal ini # dari # poin"],
+  ["你答到了 # / # 条","Anda memenuhi # dari # butir"],
+  ["至少答出 # 条即为满分。绿色高亮是你答到的内容，未高亮的是还没答到的","Cukup jawab minimal # butir untuk nilai penuh. Sorotan hijau = bagian yang sudah Anda jawab; tanpa sorotan = belum terjawab."],
+  ["绿色高亮是你答到的内容，未高亮的是还没答到的","Sorotan hijau = bagian yang sudah Anda jawab; tanpa sorotan = belum terjawab."],
+  ["你没有填写答案，所以无法对比","Anda belum mengisi jawaban, jadi tidak bisa dibandingkan"],
+  ["退出本次考试","Keluar dari ujian ini"],
+  ["退出{}","Keluar dari $1"],
+  ["已完成 # / # 题。放弃后本次成绩不会记录","Selesai # / # soal. Nilai tidak akan dicatat jika dibatalkan"],
+  ["已完成 # / # 题","Selesai # / # soal"],
+  ["继续答题","Lanjut menjawab"],
+  ["交卷并查看成绩","Kumpulkan & lihat nilai"],
+  ["结束练习并查看结果","Akhiri latihan & lihat hasil"],
+  ["放弃并返回首页","Batalkan & kembali ke beranda"],
+  ["距离考试结束还剩 # 分钟","Sisa waktu ujian # menit"],
+  ["已完成 # / # 题，注意把握时间。时间到会自动交卷","Selesai # / # soal. Perhatikan waktu; ujian dikumpulkan otomatis saat waktu habis."],
+  ["答对（绿）","Benar (hijau)"],
+  ["答错（红）","Salah (merah)"],
+  ["已答（蓝框）","Terjawab (kotak biru)"],
+  ["未答（灰）","Belum dijawab (abu-abu)"],
+  ["单选题（#）","Pilihan ganda (#)"],
+  ["多选题（#）","Pilihan jamak (#)"],
+  ["判断题（#）","Benar/Salah (#)"],
+  ["简答题（#）","Jawaban singkat (#)"],
+  ["还有 # 题未完成，交卷后按未答处理","Masih # soal belum selesai; yang kosong dihitung belum dijawab"],
+  ["全部题目已完成","Semua soal sudah selesai"],
+  ["{}练习","Latihan $1"],
+  ["错题练习","Latihan soal salah"],
+  ["本次模考成绩","Nilai ujian simulasi ini"],
+  ["{}练习结果","Hasil latihan $1"],
+  ["错题练习结果","Hasil latihan soal salah"],
+  ["成绩优秀","Nilai sangat baik"],
+  ["成绩合格","Nilai lulus"],
+  ["还需加强","Perlu ditingkatkan"],
+  ["本卷无可计分题","Tidak ada soal yang dinilai"],
+  ["已浏览完毕","Selesai dilihat"],
+  ["全部答对","Semua benar"],
+  ["继续加油","Terus semangat"],
+  ["时间到，已自动交卷","Waktu habis, ujian dikumpulkan otomatis"],
+  ["本次 # 道错题已加入错题本，可以马上重练","# soal salah telah masuk Buku Soal Salah, bisa langsung diulang"],
+  ["本次没有错题，继续保持","Tidak ada soal salah kali ini, pertahankan"],
+  ["这是题库练习，不计入成绩记录","Ini latihan bank soal; tidak dicatat dalam riwayat nilai"],
+  ["答对的题已移入“已掌握”，答错的题留在错题本里。当前还有 # 道待巩固","Soal yang benar dipindah ke \"Sudah dikuasai\", yang salah tetap di Buku Soal Salah. Masih ada # soal perlu diperkuat."],
+  ["# 分","# poin"],
+  ["# 题","# soal"],
+  ["正确率 #","Akurasi #%"],
+  ["用时约 # 分钟","Waktu sekitar # menit"],
+  ["简答得分","Skor jawaban singkat"],
+  ["简答已看（不评分）","Jawaban singkat dilihat (tidak dinilai)"],
+  ["答对","Benar"],
+  ["答错","Salah"],
+  ["未答","Belum dijawab"],
+  ["答对 #","Benar #"],
+  ["答错 #","Salah #"],
+  ["未答 #","Belum dijawab #"],
+  ["答对 +#","Benar +#"],
+  ["部分得分 +#","Sebagian +#"],
+  ["部分得分","Sebagian"],
+  ["无答案","Tanpa jawaban"],
+  ["已看答案","Jawaban dilihat"],
+  ["未看答案","Jawaban belum dilihat"],
+  ["查看历次成绩走势","Lihat tren nilai"],
+  ["筛选","Filter"],
+  ["全部 #","Semua #"],
+  ["只看错题 #","Hanya yang salah #"],
+  ["这里没有题目","Tidak ada soal di sini"],
+  ["首页","Beranda"],
+  ["重练","Ulangi"],
+  ["重练(#)","Ulangi (#)"],
+  ["再来一套","Ujian lagi"],
+  ["再练一遍","Latih lagi"],
+  ["继续练错题","Lanjut latihan soal salah"],
+  ["继续练错题(#)","Lanjut latihan soal salah (#)"],
+  ["你的答案","Jawaban Anda"],
+  ["正确答案","Jawaban benar"],
+  ["（未填写）","(belum diisi)"],
+  ["题库未提供","Tidak tersedia di bank soal"],
+  ["未作答","Belum dijawab"],
+  ["正确","Benar"],
+  ["错误","Salah"],
+  ["按历次模考中答错的次数排序，次数越多越靠前","Diurutkan menurut jumlah salah di semua ujian; semakin banyak semakin atas"],
+  ["错 # 次","Salah # kali"],
+  ["最近答错","Terakhir salah"],
+  ["已于 #月#日 #:# 掌握","dikuasai pada $2/$1 $3:$4"],
+  ["移出错题本","Keluarkan dari Buku Soal Salah"],
+  ["清空错题本","Hapus Buku Soal Salah"],
+  ["开始错题练习","Mulai latihan soal salah"],
+  ["开始错题练习（# 题）","Mulai latihan soal salah (# soal)"],
+  ["待巩固的错题已清空","Semua soal salah sudah diperkuat"],
+  ["错题本还是空的","Buku Soal Salah masih kosong"],
+  ["这些题都已掌握，下次模考继续保持","Semua soal sudah dikuasai; pertahankan di ujian berikutnya"],
+  ["完成一次模考后，答错的题会自动收进来","Setelah ujian simulasi, soal yang salah akan masuk otomatis"],
+  ["还没有已掌握的题","Belum ada soal yang dikuasai"],
+  ["在错题练习中答对的题会移到这里","Soal yang dijawab benar saat latihan akan pindah ke sini"],
+  ["平均分","Rata-rata"],
+  ["最高分","Tertinggi"],
+  ["成绩走势","Tren nilai"],
+  ["成绩分析","Analisis nilai"],
+  ["最近 # 次","# ujian terakhir"],
+  ["及格线 # 分","batas lulus # poin"],
+  ["已及格 # 次","lulus # kali"],
+  ["最近一次 #月#日 #:#","Terakhir $2/$1 $3:$4"],
+  ["各题型得分","Skor per jenis soal"],
+  ["选择题平均得分率","Rata-rata skor pilihan ganda"],
+  ["判断题平均得分率","Rata-rata skor benar/salah"],
+  ["简答题平均得分率","Rata-rata skor jawaban singkat"],
+  ["各次得分构成","Komposisi skor tiap ujian"],
+  ["每次模考成绩","Nilai tiap ujian simulasi"],
+  ["按满分 # 折算","Dihitung dari skor penuh #"],
+  ["按满分 # 折算，仅显示最近 # 次","Dihitung dari skor penuh #, hanya # ujian terakhir"],
+  ["及格","Lulus"],
+  ["不及格","Tidak lulus"],
+  ["全部记录","Semua riwayat"],
+  ["完成下一次模考后，这里会显示选择、判断、简答各得多少分","Setelah ujian simulasi berikutnya, di sini tampil skor pilihan ganda, benar/salah, dan jawaban singkat"],
+  ["第 # 次","Ke-#"],
+  ["#月#日 #:#","$2/$1 $3:$4"],
+  ["用时 # 分钟","waktu # menit"],
+  ["超时交卷","dikumpulkan otomatis (waktu habis)"],
+  ["单选 #/#","PG $1/$2"],
+  ["判断 #/#","B/S $1/$2"],
+  ["简答 #/#","Singkat $1/$2"],
+  ["持平","Tetap"],
+  ["清空成绩记录","Hapus riwayat nilai"],
+  ["最容易错的题","Soal yang paling sering salah"],
+  ["历次模考中答错次数最多的题目","Soal dengan kesalahan terbanyak di semua ujian simulasi"],
+  ["还没有模考记录","Belum ada riwayat ujian simulasi"],
+  ["完成一次模拟考试后，成绩和走势会显示在这里","Setelah satu ujian simulasi, nilai dan tren akan tampil di sini"],
+  ["去组卷","Susun ujian"],
+  ["清空成绩记录","Hapus riwayat nilai"],
+  ["所有模考成绩将被删除，无法恢复","Semua nilai ujian simulasi akan dihapus dan tidak dapat dipulihkan"],
+  ["清空错题本","Hapus Buku Soal Salah"],
+  ["待巩固和已掌握的错题都会被删除，无法恢复","Soal salah yang perlu diperkuat maupun yang sudah dikuasai akan dihapus dan tidak dapat dipulihkan"],
+  ["删除这套题库","Hapus bank soal ini"],
+  ["删除后无法恢复。错题本和成绩记录不受影响","Tidak dapat dipulihkan setelah dihapus. Buku soal salah dan riwayat nilai tidak terpengaruh"],
+  ["确认清空","Ya, hapus"],
+  ["确认删除","Ya, hapus"],
+  ["存档失败：浏览器存储空间不足，请先删除不用的题库","Gagal menyimpan: ruang penyimpanan browser penuh, hapus bank soal yang tidak dipakai"],
+  ["请上传 .docx 格式的 Word 题库","Unggah bank soal Word berformat .docx"],
+  ["没有识别到题目。请确认题目以“1.”“2.”这样的序号开头，选项以“A.”“B.”标注","Tidak ada soal terdeteksi. Pastikan soal diawali nomor seperti “1.” “2.” dan pilihan ditandai “A.” “B.”"],
+  ["{}第 # 题格式无法识别，已跳过","$1 no. $2: format tidak dikenali, dilewati"],
+  ["# 道题没有识别到答案，作答后只提示“题库未提供答案”，不计分","# soal tidak memiliki jawaban terdeteksi; hanya akan tampil “bank soal tidak menyediakan jawaban” dan tidak dinilai"],
+  ["不是有效的 .docx 文件","Bukan file .docx yang valid"],
+  ["文档中未找到正文内容","Isi dokumen tidak ditemukan"],
+  ["我上传的题库","Bank soal unggahan saya"],
+  ["未命名题库","Bank soal tanpa nama"],
+  ["当前浏览器版本过低，请使用新版 Chrome / Safari / 微信内置浏览器以外的浏览器","Versi browser terlalu lama; gunakan Chrome / Safari versi terbaru"]
+];
+const I_EX=new Map(),I_TP=[];let BI_FLAG=false;
+const ONLY=new Set(["#年#月题库","安全考试#月","安全考试#年#月","共 # 题","单选#","多选#","判断#","简答#","# 分","# 题","#分","{} 等 # 套","#月#日 #:#","第 # 次","用时约 # 分钟","正确率 #%","最近一次 # 分","连对 # 题","题库共 # 道","题库共 # 道，按答到的条数给分"]);
+for(const [z,i] of I18N){
+  if(/#|\{\}/.test(z)){
+    let re="",idx=0;
+    for(const part of z.split(/(#|\{\})/)){if(part==="#")re+="(\\d+(?:\\.\\d+)?)";else if(part==="{}")re+="([\\s\\S]+?)";else re+=part.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
+    let to=i;if(!/\$\d/.test(to)){let k=0;to=to.replace(/#/g,()=>"$"+(++k))}
+    I_TP.push({re:new RegExp("^"+re+"$"),to,len:z.length,only:ONLY.has(z)});
+  }else I_EX.set(z,i);
+}
+I_TP.sort((a,b)=>b.len-a.len);
+const CPUNC={"，":",","；":";","：":":","。":".","（":"(","）":")","！":"!","？":"?","、":",","“":"\"","”":"\"","「":"\"","」":"\"","…":"…"};
+const asc=t=>t.replace(/[，；：。（）！？、“”「」]/g,c=>CPUNC[c]);
+function trCore(c,d){
+  if(!c||d>3)return null;
+  if(I_EX.has(c)){if(d===0&&ONLY.has(c))BI_FLAG=true;return I_EX.get(c)}
+  for(const t of I_TP){const m=t.re.exec(c);if(m){if(d===0&&t.only)BI_FLAG=true;return t.to.replace(/\$(\d)/g,(_,k)=>{const v=m[+k];if(v==null)return "";return trCore(v.trim(),d+1)??v})}}
+  if(/\s·\s/.test(c)){const parts=c.split(/\s*·\s*/);let any=false;const o=parts.map(x=>{const r=trCore(x.trim(),d+1);if(r!=null){any=true;return r}return x});if(any){if(d===0)BI_FLAG=true;return o.join(" · ")}}
+  return null;
+}
+const PRE=/^([^\p{L}\p{N}（(“「]*)([\s\S]*?)([^\p{L}\p{N}）)”」]*)$/u;
+function biNode(n){
+  const raw=n.nodeValue;if(!/[一-鿿]/.test(raw)||biSkip(n))return;
+  const lead=/^\s/.test(raw)?" ":"",trail=/\s$/.test(raw)?" ":"";
+  const t=raw.replace(/\s+/g," ").trim();
+  const m=PRE.exec(t);if(!m)return;
+  const [,pre,core,post]=m;
+  BI_FLAG=false;const idc=trCore(core,0);if(idc==null)return;
+  const pict=/\p{Extended_Pictographic}/u.test(pre);
+  const idt=asc(pre)+idc+asc(post);
+  const ePic=/[\p{Extended_Pictographic}\uFE0F\u200D]/gu;const zht=pre.replace(ePic,"").trimStart()+core+post.replace(ePic,"").trimEnd();
+  const sp=document.createElement("span");sp.className="bi"+(idt.length>34?" lg2":"")+(BI_FLAG?" one":"");
+  const a=document.createElement("span");a.className="id";a.textContent=idt;
+  sp.append(a);
+  if(!BI_FLAG){const b=document.createElement("span");b.className="zh";b.textContent=zht;sp.append(b)}
+  const par=n.parentNode;if(!par)return;
+  par.replaceChild(sp,n);
+  if(lead)par.insertBefore(document.createTextNode(" "),sp);
+  if(trail)par.insertBefore(document.createTextNode(" "),sp.nextSibling);
+}
+function biSkip(n){for(let e=n.parentNode;e;e=e.parentNode){if(e.nodeType===1&&(e.classList.contains("bi")||e.classList.contains("nobi")||/^(SCRIPT|STYLE|TEXTAREA|OPTION|TITLE|svg|SVG)$/.test(e.tagName)))return true}return false}
+function biApply(root){
+  if(!root)return;
+  if(root.nodeType===3){biNode(root);return}
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>/[一-鿿]/.test(n.nodeValue)&&!biSkip(n)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT});
+  const arr=[];while(w.nextNode())arr.push(w.currentNode);
+  arr.forEach(biNode);
+}
+let _fit=0;function biFit(root){
+  (root&&root.querySelectorAll?root:document).querySelectorAll(".bi:not(.lg2)>.id").forEach(el=>{
+    const bi=el.parentNode,par=bi.parentElement;if(!par)return;
+    let avail=Infinity;for(let q=par,i=0;q&&q!==document.body&&i<4;q=q.parentElement,i++){const c=getComputedStyle(q);if(c.display==="inline")continue;avail=Math.min(avail,q.clientWidth-(parseFloat(c.paddingLeft)||0)-(parseFloat(c.paddingRight)||0))}
+    const over=()=>el.scrollWidth>el.clientWidth+1||el.getBoundingClientRect().width>avail+1;
+    el.style.fontSize="";let f=1,g=0;
+    while(over()&&f>.7&&g++<8){f-=.06;el.style.fontSize=f.toFixed(2)+"em"}
+    if(over()){el.style.fontSize="";bi.classList.add("lg2")}
+  });
+}
+const biFitSoon=()=>{cancelAnimationFrame(_fit);_fit=requestAnimationFrame(()=>biFit())};
+new MutationObserver(ms=>{biFitSoon();for(const m of ms)for(const a of m.addedNodes){if(a.nodeType===3||(a.nodeType===1&&!a.classList.contains("bi")))biApply(a)}}).observe(document.body,{childList:true,subtree:true});
+try{document.fonts&&document.fonts.ready.then(()=>biFit())}catch(e){}
+addEventListener("resize",()=>biFit());
+document.title="Latihan Ujian Keselamatan · 安全考试刷题宝";
 /* ---------- app opening animation (3s) ---------- */
 function splash(){
   try{if(matchMedia("(prefers-reduced-motion:reduce)").matches)return}catch(e){}
@@ -812,6 +1255,7 @@ function xmlToText(xml){
 const HEAD=/^(?:[一二三四五六七八九十]+\s*[、.．]\s*)?(单项选择|单选|多项选择|多选|选择|判断|简答|问答|填空|论述|案例分析|案例)题?/;
 const QSTART=/^(\d{1,3})\s*[.、．]\s*(?=\S)/;
 function secType(l){
+  if(l.length<=42&&!/[?？]\s*$/.test(l)&&!/^\d/.test(l)){const mi=l.match(HEADID);if(mi){const w=mi[1].toLowerCase();return /jamak|kompleks/.test(w)?"multi":/benar/.test(w)?"tf":/isian|singkat|esai|essay|uraian|kasus/.test(w)?"short":"single"}}
   if(l.length>24||!/题/.test(l))return null;
   const m=l.match(HEAD);if(!m)return null;
   if(/判断/.test(m[1]))return "tf";
@@ -819,8 +1263,9 @@ function secType(l){
   if(/简答|问答|填空|论述|案例/.test(m[1]))return "short";
   return "single";
 }
-const TFMAP={"√":"T","✓":"T","✔":"T","对":"T","正确":"T","T":"T","×":"F","✗":"F","✘":"F","错":"F","错误":"F","F":"F","X":"F","x":"F"};
-function parseBank(text){
+const HEADID=/^(?:(?:bagian|bab)\s*)?(?:[ivx]+|[a-e])?\s*[.)、:\-–]?\s*(?:soal\s+)?(pilihan\s+ganda\s+(?:kompleks|jamak)|pilihan\s+jamak|pilihan\s+ganda|pilihan\s+tunggal|benar\s*(?:[\/\-]|atau)?\s*salah|isian(?:\s+singkat)?|jawaban\s+singkat|esai|essay|uraian|studi\s+kasus|kasus)/i;
+const TFMAP={"BENAR":"T","SALAH":"F","TRUE":"T","FALSE":"F","B":"T","S":"F","√":"T","✓":"T","✔":"T","对":"T","正确":"T","T":"T","×":"F","✗":"F","✘":"F","错":"F","错误":"F","F":"F","X":"F","x":"F"};
+function parseBank(text,lang){S.plang=lang||"zh";
   const lines=text.replace(/[　 ]/g," ").split("\n").map(s=>s.trim()).filter(Boolean);
   const warns=[];const bank=[];
   let type="single",prev=0,cur=null;const chunks=[];
@@ -845,17 +1290,17 @@ function parseBank(text){
   bank.forEach((q,i)=>q.id=i);
   return {bank,warns};
 }
-function parseTF(c){
+function parseTF(c){const idl=S.plang==="id";
   let t=c.lines.join(" ").trim();
-  const re=/[（(]\s*(√|✓|✔|×|✗|✘|对|错|正确|错误)\s*[）)]/g;let m,last=null;
+  const re=/[（(]\s*(√|✓|✔|×|✗|✘|对|错|正确|错误|benar|salah|true|false|T|F|B|S)\s*[）)]/gi;let m,last=null;
   while((m=re.exec(t)))last=m;
   let ans=null;
-  if(last){ans=TFMAP[last[1]];t=(t.slice(0,last.index)+t.slice(last.index+last[0].length)).trim()}
+  if(last){ans=TFMAP[last[1]]||TFMAP[last[1].toUpperCase()]||null;t=(t.slice(0,last.index)+t.slice(last.index+last[0].length)).trim()}
   if(!t)return null;
-  return {type:"tf",stem:t,opts:[{k:"T",t:"正确"},{k:"F",t:"错误"}],ans};
+  return {type:"tf",stem:t,opts:[{k:"T",t:idl?"Benar":"正确"},{k:"F",t:idl?"Salah":"错误"}],ans};
 }
 function parseShort(c){
-  const stem=c.lines[0];const rest=c.lines.slice(1).join("\n").replace(/^答案[:：]?\s*/,"").trim();
+  const stem=c.lines[0];const rest=c.lines.slice(1).join("\n").replace(/^(?:答案|jawaban|kunci(?:\s+jawaban)?)\s*[:：]?\s*/i,"").trim();
   return {type:"short",stem,opts:[],ans:null,ref:rest};
 }
 function parseChoice(c){
@@ -917,7 +1362,7 @@ function parseChoice(c){
   }
   stem=stem.replace(/[（(]\s*[）)]/g,"（　　）").trim();
   let ans=letters.size?[...letters].sort().join(""):null;
-  if(!ans){const am2=/答案\s*[:：]?\s*([A-F]+)/.exec(t);if(am2)ans=am2[1]}
+  if(!ans){const am2=/(?:答案|jawaban|kunci)\s*[:：]?\s*([A-F]+)/i.exec(t);if(am2)ans=am2[1]}
   const keys=opts.map(o=>o.k);
   if(ans&&![...ans].every(x=>keys.includes(x)))ans=null;
   const type=ans&&ans.length>1?"multi":(c.type==="multi"?"multi":"single");
@@ -932,13 +1377,13 @@ async function loadFile(f){
     if(/\.docx$/i.test(f.name))text=await readDocxText(await f.arrayBuffer());
     else if(/\.(txt|md)$/i.test(f.name))text=await f.text();
     else throw new Error("请上传 .docx 格式的 Word 题库");
-    const r=parseBank(text);
+    const r=parseBank(text,detectLang(text));
     if(!r.bank.length)throw new Error("没有识别到题目。请确认题目以“1.”“2.”这样的序号开头，选项以“A.”“B.”标注");
     const warn=r.warns.slice();
     const noAns=r.bank.filter(q=>q.type!=="short"&&!q.ans).length;
     if(noAns)warn.push(`${noAns} 道题没有识别到答案，作答后只提示“题库未提供答案”，不计分`);
     S.drawer=false;S.view="home";
-    {const nm=f.name.replace(/\.[^.]+$/,"");S.pending={name:nm,ym:detectYM(nm),cat:"安全考试",bank:r.bank,warn}}
+    {const nm=f.name.replace(/\.[^.]+$/,"");S.pending={name:nm,ym:detectYM(nm),cat:"安全考试",lang:detectLang(text),bank:r.bank,warn}}
   }catch(e){S.err=e.message||String(e);}
   render();
 }
@@ -1041,7 +1486,7 @@ function loadZ(){try{const v=+localStorage.getItem("anquiz.z");return v>=0&&v<3?
 S.z=loadZ();
 function applyZ(){document.documentElement.style.setProperty("--z",ZS[S.z])}
 applyZ();
-const zBtn=()=>`<button class="ibtn" id="zbtn" aria-label="字号：${ZN[S.z]}，点击切换">${ic("font")}${ZN[S.z]}</button>`;
+const zBtn=(nf)=>(nf?"":flagBtn())+`<button class="ibtn nobi" id="zbtn" aria-label="字号：${ZN[S.z]}，点击切换">${ic("font")}${ZN[S.z]}</button>`;
 function shell(nav,body,foot,prog){
   return `<header class="topbar"><div class="nav gut">${nav}</div>${prog||""}</header><main class="scroll" id="scroll"><div class="wrap gut">${body}</div></main>${foot?`<footer class="foot gut">${foot}</footer>`:""}`;
 }
@@ -1050,7 +1495,8 @@ function render(){
   const a=$("#app");
   const V={home:vHome,setup:vSetup,quiz:vQuiz,result:vResult,wrong:vWrong,hist:vHist};
   S.pre=!!S.resetScroll;
-  a.innerHTML=V[S.view]()+vPending()+vDrawer();
+  a.innerHTML=V[S.view]()+vPending()+vDrawer()+vFlagMenu();
+  biApply(a);biFit(a);setTimeout(()=>biFit(a),350);
   layoutBars();
   const sc=document.getElementById("scroll");if(sc&&!S.resetScroll)sc.scrollTop=top;
   S.anim=!!S.resetScroll;S.resetScroll=false;S.dfresh=false;
@@ -1079,10 +1525,11 @@ function vHome(){
   const tiles=`<div class="tiles">
     <button class="tile" id="toWrong"><span class="ti w">${ic("book")}</span><span class="n ${act?"warnc":""}">${act}</span><b>📒 错题本</b><small>${W.length?`待巩固 ${act} · 已掌握 ${W.length-act}`:"模考后自动生成"}</small></button>
     <button class="tile" id="toHist"><span class="ti">${ic("chart")}</span><span class="n">${R.length}</span><b>📈 成绩记录</b><small>${R.length?`最近一次 ${pct100(R[R.length-1])} 分`:"完成模考后显示"}</small></button></div>`;
-  const bank=has?`<div class="card bankcard"><div class="bk"><span class="bkl">${S.bankCat||"📚 多套合并"}</span><button class="ibtn" id="dopen2">${ic("menu")}切换题库</button></div>
+  const bank=has?`<div class="card bankcard"><div class="bk"><span class="bkl">${S.bankCat||"📚 多套合并"}</span></div>
      <h2 style="overflow-wrap:anywhere">${esc(S.name)}</h2><p class="sub">共 ${S.bank.length} 题 · ${bsum(S.bank)}</p>
      ${S.warn.length?`<ul class="warn">${S.warn.slice(0,6).map(w=>`<li>${esc(w)}</li>`).join("")}${S.warn.length>6?`<li>另有 ${S.warn.length-6} 条提示</li>`:""}</ul>`:""}</div>`:"";
-  const body=`${hero}${resume}${quick}${tiles}${bank}
+  const nobank=!has?`<div class="card bankcard nob">${flag(S.lang,"big")}<h2>${S.lang==="id"?"还没有印尼语题库":"还没有中文题库"}</h2><p class="sub">点下面的按钮打开题库，上传 Word（.docx）题库后即可开始练习。</p><button class="btn primary" id="dopen3">${ic("menu")}打开题库列表</button></div>`:"";
+  const body=`${hero}${resume}${quick}${tiles}${bank}${nobank}
 
   ${S.err?`<p class="err" role="alert">${esc(S.err)}</p>`:""}
   <p class="sub">要上传新题库，请点左上角「题库」。成绩记录、错题本和上传的题库都保存在这台设备的浏览器里，换手机或清除浏览器数据后会消失。</p>`;
@@ -1096,11 +1543,15 @@ function vDrawer(){
   const tabs=[["all","📚 全部"],...yms.map(y=>["ym:"+y,"🦺 "+catLabel({cat:"安全考试",ym:y})]),["other","📚 其他"]];
   const list=L.filter(b=>S.dcat==="all"||dKey(b)===S.dcat);
   const chips=tabs.map(([k,t])=>`<button class="chip" data-dcat="${k}" aria-pressed="${S.dcat===k}">${t}</button>`).join("");
-  const rows=list.map(b=>{
+  const row=b=>{
     const on=S.active.includes(b.id);
     return `<div class="brow ${on?"on":""}"><button class="bsel" data-bsel="${b.id}" aria-pressed="${on}"><span class="chk">${on?ic("check"):""}</span><span class="bn"><b>${esc(b.name)}</b><small>${catEmoji(b)} ${esc(catLabel(b))} · 共 ${b.bank.length} 题</small><small>${bsum(b.bank)}</small></span></button>
       <div class="bact">${b.user?`<button class="ibtn sm" data-bcat="${b.id}" aria-label="切换类别">改为${b.cat==="安全考试"?"其他":"安全考试"}</button><button class="ibtn sm" data-bdel="${b.id}" aria-label="删除题库">${ic("trash")}</button>`:`<span class="bb">内置</span>`}</div></div>`;
-  }).join("")||`<div class="empty"><b>这个类别还没有题库</b><span>点下面的按钮上传一个吧</span></div>`;
+  };
+  const rows=[["id","印尼语题库"],["zh","中文题库"]].map(([lg,title])=>{
+    const ls=L.filter(b=>b.lang===lg&&(S.dcat==="all"||dKey(b)===S.dcat));
+    return `<div class="lgh ${S.lang===lg?"cur":""}">${flag(lg)}<b>${title}</b>${S.lang===lg?`<em>当前</em>`:""}<span class="n">${ls.length}</span></div>`+(ls.map(row).join("")||`<div class="emp2">暂无题库</div>`);
+  }).join("");
   return `<div class="dmask" id="dmask"></div><aside class="drawer ${S.dfresh?"fresh":""}" role="dialog" aria-label="题库">
     <div class="dh"><h2>📚 题库</h2><button class="ibtn" id="dclose" aria-label="关闭">${ic("cross")}</button></div>
     <div class="chips">${chips}</div>
@@ -1118,6 +1569,8 @@ function vPending(){
     <input id="pname" type="text" value="${esc(p.name)}" maxlength="40" style="min-height:3rem;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);padding:0 12px;font-size:1rem;width:100%">
     <div class="sub">📅 题库月份（已按文件名自动识别，可修改）</div>
     <input id="pym" type="month" value="${esc(p.ym)}" style="min-height:3rem;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);padding:0 12px;font-size:1rem;width:100%">
+    <div class="sub">题库语言</div>
+    <div class="chips">${["id","zh"].map(l=>`<button class="chip" data-plang="${l}" aria-pressed="${p.lang===l}">${flag(l)} ${l==="id"?"印尼语":"中文"}</button>`).join("")}</div>
     <div class="sub">题库类别</div>
     <div class="chips">${CATS.map(k=>`<button class="chip" data-pcat="${k}" aria-pressed="${p.cat===k}">${CATEMO[k]} ${k==="安全考试"?catLabel({cat:k,ym:p.ym}):k}</button>`).join("")}</div>
     <div class="row"><button class="btn" id="pcancel">取消</button><button class="btn primary" id="psave">${ic("check")}保存并使用</button></div></div></div>`;
@@ -1179,7 +1632,7 @@ function vQuiz(){
   const doneN=E.filter(x=>x.done).length;
   const rem=isExam?S.exam.deadline-Date.now():0;
   const timer=isExam?`<span class="tm ${rem<=600000?"low":""}" aria-label="剩余时间">${ic("clock")}<span id="timer">${fmtMS(rem)}</span></span>`:`<span class="tm">${S.exam.label||"错题练习"}</span>`;
-  const nav=`<div class="l"><button class="ibtn" id="quit">${ic("exit")}退出</button>${zBtn()}</div><div class="t two"><div>${S.idx+1} <small>/ ${E.length}</small></div>${timer}</div><div class="r"><button class="ibtn" id="sheetBtn">${ic("grid")}答题卡</button></div>`;
+  const nav=`<div class="l"><button class="ibtn" id="quit">${ic("exit")}退出</button>${zBtn(1)}</div><div class="t two"><div>${S.idx+1} <small>/ ${E.length}</small></div>${timer}</div><div class="r"><button class="ibtn" id="sheetBtn">${ic("grid")}答题卡</button></div>`;
   const main=`<div class="qcard"><span class="tag">${EMO[q.type]} ${TYPE[q.type]}${q.type==="multi"?" · 可多选":""}${it.score&&isExam?` · ${it.score}分`:""}</span><p class="stem">${esc(q.stem)}</p></div>${body}`;
   const foot=`<button class="btn" id="prev" ${S.idx===0?"disabled":""}>${ic("left")}上一题</button>
       ${last?`<button class="btn primary" id="finish">${ic("flag")}交卷</button>`:`<button class="btn dark" id="next">下一题${ic("right")}</button>`}`;
@@ -1241,17 +1694,17 @@ function vResult(){
   }).join("");
   const nav=`<div class="l"></div><div class="t">${isExam?"本次模考成绩":(S.exam.label?S.exam.label+"结果":"错题练习结果")}</div><div class="r">${zBtn()}</div>`;
   const unit=isExam?"分":"题";
-  const title=isExam?(s.total?(pct>=.9?"🏆 成绩优秀":pct>=.6?"👍 成绩合格":"💪 还需加强"):"本卷无可计分题"):(!s.total?"👀 已浏览完毕":s.bad+s.un===0?"🎉 全部答对":"💪 继续加油");
-  if(isExam&&s.total&&pct>=.6&&S.pre)S.celebrate=true;
+  const title=isExam?(s.total?(pct>=.9?"🏆 成绩优秀":pct>=PASS/100?"👍 成绩合格":"💪 还需加强"):"本卷无可计分题"):(!s.total?"👀 已浏览完毕":s.bad+s.un===0?"🎉 全部答对":"💪 继续加油");
+  if(isExam&&s.total&&pct>=PASS/100&&S.pre)S.celebrate=true;
   const act=Object.values(wrongs()).filter(w=>w.active).length;
   const note=isExam
     ? (S.timeUp?`<div class="fb bad" role="status">${ic("clock")}时间到，已自动交卷</div>`:"")+(s.bad?`<div class="fb neutral">📒 本次 ${s.bad} 道错题已加入错题本，可以马上重练。</div>`:`<div class="fb ok">🎯 本次没有错题，继续保持！</div>`)
     : (S.exam.label?`<div class="fb neutral">这是题库练习，不计入成绩记录。</div>`:`<div class="fb neutral">答对的题已移入“已掌握”，答错的题留在错题本里。当前还有 ${act} 道待巩固。</div>`);
   const body=`${note}
     <div class="card score">
-      <div class="ring"><svg viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--line)" stroke-width="12"/><circle cx="66" cy="66" r="${R}" fill="none" stroke="${pct>=.6?"var(--ok)":"var(--bad)"}" stroke-width="12" stroke-linecap="round" class="rg" stroke-dasharray="${C}" data-to="${C*(1-pct)}" stroke-dashoffset="${S.pre?C:C*(1-pct)}"/></svg>
+      <div class="ring"><svg viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="${R}" fill="none" stroke="var(--line)" stroke-width="12"/><circle cx="66" cy="66" r="${R}" fill="none" stroke="${pct>=PASS/100?"var(--ok)":"var(--bad)"}" stroke-width="12" stroke-linecap="round" class="rg" stroke-dasharray="${C}" data-to="${C*(1-pct)}" stroke-dashoffset="${S.pre?C:C*(1-pct)}"/></svg>
         <div class="c"><b class="cu">${+s.got.toFixed(1)}</b><span>/ ${s.total} ${unit}</span></div></div>
-      <div style="min-width:0"><span class="tr ${pct>=.6||!isExam?"p":"f"}">${ic(isExam?(pct>=.6?"trophy":"target"):"check")}</span><h2>${title}</h2>
+      <div style="min-width:0"><span class="tr ${pct>=PASS/100||!isExam?"p":"f"}">${ic(isExam?(pct>=PASS/100?"trophy":"target"):"check")}</span><h2>${title}</h2>
       <p class="sub">正确率 ${Math.round(pct*100)}% · 用时约 ${used} 分钟</p></div>
     </div>
     <div class="stats">
@@ -1334,7 +1787,7 @@ function vHist(){
   const withBy=R.filter(r=>r.by);
   const last10=R.slice(-10),np=last10.length,X=i=>np===1?150:24+i*(252/(np-1)),LO=Math.max(0,Math.min(60,Math.floor((Math.min(...last10.map(pct100))-8)/10)*10)),Y=p=>128-(p-LO)/(100-LO)*108;
   const pts=last10.map((r,i)=>[X(i),Y(pct100(r)),pct100(r)]);
-  const trend=`<svg class="trend" viewBox="0 0 300 160" role="img" aria-label="历次模考成绩走势"><line x1="10" x2="290" y1="${Y(PASS)}" y2="${Y(PASS)}" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="5 4"/><text x="290" y="${Y(PASS)-4}" text-anchor="end" font-size="9" font-weight="700" fill="var(--accent)">及格线 ${PASS}</text>${np>1?`<polyline points="${pts.map(q=>q[0].toFixed(1)+","+q[1].toFixed(1)).join(" ")}" fill="none" stroke="var(--brand)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" class="tl2"/>`:""}${pts.map((q,i)=>`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="4" fill="${q[2]>=PASS?"var(--ok)":"var(--bad)"}" stroke="var(--surface)" stroke-width="1.5"/><text x="${q[0].toFixed(1)}" y="${(q[1]-8).toFixed(1)}" text-anchor="middle" font-size="9.5" font-weight="700" fill="currentColor">${q[2]}</text><text x="${q[0].toFixed(1)}" y="152" text-anchor="middle" font-size="8.5" fill="var(--muted)">${fmtD(last10[i].t)}</text>`).join("")}</svg>`;
+  const trend=`<svg class="trend" viewBox="0 0 300 160" role="img" aria-label="历次模考成绩走势"><line x1="10" x2="290" y1="${Y(PASS)}" y2="${Y(PASS)}" stroke="var(--accent)" stroke-width="1.6" stroke-dasharray="5 4"/><text x="290" y="${Y(PASS)-4}" text-anchor="end" font-size="9" font-weight="700" fill="var(--accent)">Lulus ${PASS}</text>${np>1?`<polyline points="${pts.map(q=>q[0].toFixed(1)+","+q[1].toFixed(1)).join(" ")}" fill="none" stroke="var(--brand)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" class="tl2"/>`:""}${pts.map((q,i)=>`<circle cx="${q[0].toFixed(1)}" cy="${q[1].toFixed(1)}" r="4" fill="${q[2]>=PASS?"var(--ok)":"var(--bad)"}" stroke="var(--surface)" stroke-width="1.5"/><text x="${q[0].toFixed(1)}" y="${(q[1]-8).toFixed(1)}" text-anchor="middle" font-size="9.5" font-weight="700" fill="currentColor">${q[2]}</text><text x="${q[0].toFixed(1)}" y="152" text-anchor="middle" font-size="8.5" fill="var(--muted)">${fmtD(last10[i].t)}</text>`).join("")}</svg>`;
   const sbs=withBy.slice(-8).map((r,i)=>{const tt=r.total||1;return `<div class="sbc"><div class="sbs">${KT.map(t=>r.by[t]?`<i style="height:${r.by[t].got/tt*100}%;background:${CL[t]}" title="${CN[t]} ${r.by[t].got}分"></i>`:"").join("")}</div><span>${fmtD(r.t)}</span></div>`}).join("");
   const lr=withBy.length?withBy[withBy.length-1]:null;
   const lastBars=lr?KT.filter(t=>lr.by[t]).map(t=>{const b=lr.by[t],rate=b.total?Math.round(b.got/b.total*100):0;return `<div class="tb"><div class="tn"><span><i style="background:${CL[t]}"></i>${CN[t]}</span><b>${b.got}<small> / ${b.total} 分</small></b></div><div class="tr"><i style="width:${Math.max(3,rate)}%;background:${CL[t]}"></i></div></div>`}).join(""):"";
@@ -1401,12 +1854,17 @@ function bind(){
   on("#dopen",openDrawer);on("#dopen2",openDrawer);on("#dclose",closeDrawer);on("#dmask",closeDrawer);
   document.querySelectorAll("[data-dcat]").forEach(b=>b.addEventListener("click",()=>{S.dcat=b.dataset.dcat;render()}));
   document.querySelectorAll("[data-bsel]").forEach(b=>b.addEventListener("click",e=>{
-    const id=b.dataset.bsel;let a=S.active.slice();
+    const id=b.dataset.bsel,bk=lib().find(x=>x.id===id);let a=S.active.slice();
+    if(bk&&bk.lang!==S.lang){setLang(bk.lang,[id]);return}
     if(e.target.closest(".chk")){
       if(a.includes(id)){if(a.length>1)a=a.filter(x=>x!==id)}else a.push(id);
       applyActive(a);render();return}
     if(a.length===1&&a[0]===id){closeDrawer();return}
     const old=S.name;applyActive([id]);clearTimeout(S.dt);S.drawer=false;S.resetScroll=true;render();playSwitch(old,S.name)}));
+  on("#flagbtn",()=>{S.flagMenu=!S.flagMenu;render()});on("#fmask",()=>{S.flagMenu=false;render()});
+  document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+  on("#dopen3",openDrawer);
+  document.querySelectorAll("[data-plang]").forEach(b=>b.addEventListener("click",()=>{S.pending.lang=b.dataset.plang;render()}));
   document.querySelectorAll("[data-bcat]").forEach(b=>b.addEventListener("click",()=>{
     const L=jget(LSL,[]),x=L.find(y=>y.id===b.dataset.bcat);if(x){x.cat=x.cat==="安全考试"?"其他":"安全考试";saveUserLib(L);applyActive(S.active)}render()}));
   document.querySelectorAll("[data-bdel]").forEach(b=>b.addEventListener("click",()=>{S.confirm="del:"+b.dataset.bdel;S.drawer=false;render()}));
@@ -1454,7 +1912,7 @@ document.addEventListener("keydown",e=>{
 $("#gfile").addEventListener("change",e=>{const f=e.target.files[0];e.target.value="";if(f)loadFile(f)});
 (function init(){
   migrateLegacy();
-  applyActive(jget(LSA,[]));
+  S.lang=jget(LSG,"zh")==="id"?"id":"zh";applyActive(actMap()[S.lang]);
   const sv=jget(LSE,null);
   if(sv&&Array.isArray(sv.items)&&sv.items.length){
     if(sv.deadline<=Date.now()){S.exam={items:sv.items,start:sv.start,mode:"exam",dur:sv.dur,deadline:sv.deadline,warned:true};S.timeUp=true;submit();return}
