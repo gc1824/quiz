@@ -374,7 +374,7 @@ body{background:linear-gradient(180deg,var(--bg-top) 0,var(--bg) 220px) var(--bg
 .paper .stamp{position:absolute;right:10px;bottom:10px;width:52px;height:52px;border-radius:50%;background:#16a34a;color:#fff;display:grid;place-items:center;font-size:28px;font-weight:800;opacity:0;transform:scale(2.2) rotate(-18deg);animation:stamp .45s cubic-bezier(.2,1.4,.4,1) 3.95s forwards;box-shadow:0 6px 16px rgba(22,163,74,.5)}
 @keyframes stamp{to{opacity:1;transform:scale(1) rotate(-8deg)}}
 .intro .st{position:relative;height:3.4rem;width:100%;margin-top:22px;text-align:center}
-.intro .st span{position:absolute;left:0;right:0;top:0;font-size:17px;font-weight:700;opacity:0}
+.intro .st>span{position:absolute;left:0;right:0;top:0;font-size:17px;font-weight:700;opacity:0}
 .intro .st small{display:block;font-size:13px;font-weight:500;opacity:.8;margin-top:2px}
 .intro .st .a{animation:stw .9s .15s both}
 .intro .st .b{animation:stw 2.9s 1s both}
@@ -515,6 +515,15 @@ body{background:linear-gradient(180deg,var(--bg-top) 0,var(--bg) 220px) var(--bg
 .bi>.id{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bi.lg2>.id{white-space:normal;overflow:visible}
 .bi>.zh{white-space:normal}
+
+
+.fl .fcv b{display:block;max-width:100%}
+.fl .fcv .bi{max-width:100%;text-align:center}
+.fl .fcv .bi>.id{white-space:normal;overflow:visible;font-size:13px;line-height:1.25;overflow-wrap:anywhere}
+.intro .st>span .bi>.id{white-space:normal}
+
+.sp .tt{display:flex;flex-direction:column;gap:4px;font-size:19px;letter-spacing:.02em}
+.sp .tt small{font-size:15px;font-weight:600;opacity:.85;letter-spacing:.08em}
 @media (prefers-reduced-motion:reduce){.intro{display:none}}
 </style>
 <div id="app"></div>
@@ -1151,7 +1160,7 @@ function trCore(c,d){
 }
 const PRE=/^([^\p{L}\p{N}（(“「]*)([\s\S]*?)([^\p{L}\p{N}）)”」]*)$/u;
 function biNode(n){
-  const raw=n.nodeValue;if(!/[一-鿿]/.test(raw)||biSkip(n))return;
+  if(S.lang!=="id")return;const raw=n.nodeValue;if(!/[一-鿿]/.test(raw)||biSkip(n))return;
   const lead=/^\s/.test(raw)?" ":"",trail=/\s$/.test(raw)?" ":"";
   const t=raw.replace(/\s+/g," ").trim();
   const m=PRE.exec(t);if(!m)return;
@@ -1163,7 +1172,7 @@ function biNode(n){
   const sp=document.createElement("span");sp.className="bi"+(idt.length>34?" lg2":"")+(BI_FLAG?" one":"");
   const a=document.createElement("span");a.className="id";a.textContent=idt;
   sp.append(a);
-  if(!BI_FLAG){const b=document.createElement("span");b.className="zh";b.textContent=zht;sp.append(b)}
+  
   const par=n.parentNode;if(!par)return;
   par.replaceChild(sp,n);
   if(lead)par.insertBefore(document.createTextNode(" "),sp);
@@ -1201,7 +1210,7 @@ function splash(){
   el.innerHTML=`<div class="scene"><div class="pile">${pile}</div>
     <div class="ob"><div class="rpg"><i class="ln" style="--k:0;--w:70px;top:30px"></i><i class="ln" style="--k:1;--w:60px;top:54px"></i><i class="ln" style="--k:2;--w:76px;top:78px"></i><i class="ln" style="--k:3;--w:50px;top:102px"></i><div class="pa"><div class="pen"></div></div></div>
       <div class="cv"><div class="f">📚</div><div class="b"><i class="ln2"></i><i class="ln2" style="width:44px"></i><i class="ln2" style="width:60px"></i></div></div></div>
-    <div class="tt">安全考试刷题宝</div></div>`;
+    <div class="tt nobi"><span>Latihan Ujian Keselamatan</span><small>安全考试刷题宝</small></div></div>`;
   document.body.appendChild(el);
   const fin=()=>{el.classList.add("out");setTimeout(()=>el.remove(),380)};
   setTimeout(fin,2700);
@@ -1496,6 +1505,7 @@ function render(){
   const V={home:vHome,setup:vSetup,quiz:vQuiz,result:vResult,wrong:vWrong,hist:vHist};
   S.pre=!!S.resetScroll;
   a.innerHTML=V[S.view]()+vPending()+vDrawer()+vFlagMenu();
+  document.title=S.lang==="id"?"Latihan Ujian Keselamatan":"安全考试刷题宝";
   biApply(a);biFit(a);setTimeout(()=>biFit(a),350);
   layoutBars();
   const sc=document.getElementById("scroll");if(sc&&!S.resetScroll)sc.scrollTop=top;
@@ -1548,7 +1558,7 @@ function vDrawer(){
     return `<div class="brow ${on?"on":""}"><button class="bsel" data-bsel="${b.id}" aria-pressed="${on}"><span class="chk">${on?ic("check"):""}</span><span class="bn"><b>${esc(b.name)}</b><small>${catEmoji(b)} ${esc(catLabel(b))} · 共 ${b.bank.length} 题</small><small>${bsum(b.bank)}</small></span></button>
       <div class="bact">${b.user?`<button class="ibtn sm" data-bcat="${b.id}" aria-label="切换类别">改为${b.cat==="安全考试"?"其他":"安全考试"}</button><button class="ibtn sm" data-bdel="${b.id}" aria-label="删除题库">${ic("trash")}</button>`:`<span class="bb">内置</span>`}</div></div>`;
   };
-  const rows=[["id","印尼语题库"],["zh","中文题库"]].map(([lg,title])=>{
+  const rows=(S.lang==="zh"?[["zh","中文题库"],["id","印尼语题库"]]:[["id","印尼语题库"],["zh","中文题库"]]).map(([lg,title])=>{
     const ls=L.filter(b=>b.lang===lg&&(S.dcat==="all"||dKey(b)===S.dcat));
     return `<div class="lgh ${S.lang===lg?"cur":""}">${flag(lg)}<b>${title}</b>${S.lang===lg?`<em>当前</em>`:""}<span class="n">${ls.length}</span></div>`+(ls.map(row).join("")||`<div class="emp2">暂无题库</div>`);
   }).join("");
